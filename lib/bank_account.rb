@@ -11,7 +11,6 @@ class BankAccount
   end
 
   def deposit(amount)
-    # binding.pry
     @balance += amount
   end
 
@@ -24,6 +23,7 @@ class BankAccount
   end
 
   def close_account
+      self.status = "closed"
   end
 
 end
