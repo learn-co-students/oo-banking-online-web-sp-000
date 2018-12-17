@@ -10,6 +10,7 @@ class BankAccount
     def deposit(number)
       self.balance = self.balance + number
     end
+    
     def display_balance
       return "Your balance is $#{self.balance}."
     end
@@ -25,5 +26,5 @@ class BankAccount
         return false
       end
    end
-   
+
 end
