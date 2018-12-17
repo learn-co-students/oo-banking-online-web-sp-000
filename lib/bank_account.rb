@@ -10,9 +10,9 @@ class BankAccount
     def deposit(number)
       self.balance = self.balance + number
     end
-    
+
     def display_balance
-      return "Your balance is $#{self.balance}."
+      return "Your balance is $#{balance}."
     end
 
     def close_account
@@ -20,7 +20,7 @@ class BankAccount
     end
 
    def valid?
-      if self.status == "open" && self.balance >0
+      if status == "open" && balance >0
         return true
       else
         return false
