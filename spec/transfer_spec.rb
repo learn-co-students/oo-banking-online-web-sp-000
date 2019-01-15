@@ -29,10 +29,7 @@ describe 'Transfer' do
   end
 
   describe '#valid?' do
-    it "can check that both accounts are valid" do
-      expect(avi.valid?).to eq (true)
-      expect(amanda.valid?).to eq(true)
-      expect(transfer.valid?).to eq(true)
+
     end
 
     it "calls on the sender and receiver's #valid? methods" do
@@ -42,11 +39,18 @@ describe 'Transfer' do
       expect(avi).to receive(:valid?).and_return(true)
 
       transfer.valid?
+
     end
+
   end
 
   describe '#execute_transaction' do
+    let(:avi) { BankAccount.new("Avi") }
+    let(:amanda) { BankAccount.new("Amanda") }
+    let(:transfer) { Transfer.new(amanda, avi, 50) }
+    let(:bad_transfer) { Transfer.new(amanda, avi, 4000) }
     it "can execute a successful transaction between two accounts" do
+
       transfer.execute_transaction
       expect(amanda.balance).to eq(950)
       expect(avi.balance).to eq(1050)
@@ -70,6 +74,10 @@ describe 'Transfer' do
   end
 
   describe '#reverse_transfer' do
+    let(:avi) { BankAccount.new("Avi") }
+    let(:amanda) { BankAccount.new("Amanda") }
+    let(:transfer) { Transfer.new(amanda, avi, 50) }
+    let(:bad_transfer) { Transfer.new(amanda, avi, 4000) }
     it "can reverse a transfer between two accounts" do
       transfer.execute_transaction
       expect(amanda.balance).to eq(950)
@@ -86,4 +94,3 @@ describe 'Transfer' do
       expect(avi.balance).to eq(1000)
     end
   end
-end
