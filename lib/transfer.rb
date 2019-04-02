@@ -7,7 +7,7 @@ class Transfer
     @status = 'pending'
     @sender = sender
     @receiver = receiver
-    #@transaction_id = 0
+  
   end
 
   def valid?
