@@ -46,6 +46,7 @@ describe 'Transfer' do
   end
 
   describe '#execute_transaction' do
+    
     it "can execute a successful transaction between two accounts" do
       transfer.execute_transaction
       expect(amanda.balance).to eq(950)
@@ -62,7 +63,7 @@ describe 'Transfer' do
       expect(amanda.balance).to eq(950)
       expect(avi.balance).to eq(1050)
     end
-
+    
     it "rejects a transfer if the sender doesn't have a valid account" do
       expect(bad_transfer.execute_transaction).to eq("Transaction rejected. Please check your account balance.")
       expect(bad_transfer.status).to eq("rejected")
