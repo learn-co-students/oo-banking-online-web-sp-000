@@ -1,7 +1,7 @@
 class Transfer
   # your code here
-attr_reader :sender, :receiver
-attr_accessor :status, :amount
+attr_reader :sender, :receiver, :amount
+attr_accessor :status
 @@transaction=[]
 
 def transaction
