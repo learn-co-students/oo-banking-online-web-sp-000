@@ -15,19 +15,6 @@ class Transfer
     end
   end
 
-  # def execute_transaction
-  #   deposit_amount = @amount
-  #   withdrawl_amount = (@amount*-1)
-  #   if sender.valid? == true
-  #     sender.deposit(withdrawl_amount)
-  #     receiver.deposit(deposit_amount)
-  #     @status = "complete"
-  #     @amount = "Transaction rejected. Please check your account balance."
-  #   else
-  #   amount = "Transaction rejected. Please check your account balance."
-  #   end
-  # end
-
     def execute_transaction
       deposit_amount = @amount
       withdrawl_amount = (@amount *-1)
