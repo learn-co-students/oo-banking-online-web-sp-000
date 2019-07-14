@@ -76,6 +76,7 @@ describe 'Transfer' do
 
   describe '#reverse_transfer' do
     it "can reverse a transfer between two accounts" do
+     # binding.pry 
       transfer.execute_transaction
       expect(amanda.balance).to eq(950)
       expect(avi.balance).to eq(1050)
@@ -83,10 +84,11 @@ describe 'Transfer' do
       expect(avi.balance).to eq(1000)
       expect(amanda.balance).to eq(1000)
       expect(transfer.status).to eq("reversed")
+     # binding.pry 
     end
 
     it "it can only reverse executed transfers" do
-      transfer.reverse_transfer
+      transfer.reverse_transfer  ##initaties the 12th instane of transfer, the status is pendining when it hits the binding pry in initialize and I return the last entry to transfers 
       expect(amanda.balance).to eq(1000)
       expect(avi.balance).to eq(1000)
     end
