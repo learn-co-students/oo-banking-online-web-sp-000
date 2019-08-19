@@ -17,11 +17,11 @@ class Transfer
   end
   
   def execute_transaction
-    if @sender.valid? == true
-      @sender.balance -= amount
-      @receiver.balance += amount
+    d_amount = @amount
+    if @sender.valid?
+      @sender.balance -= d_amount
+      @receiver.balance += d_amount
       @status = "complete"
-      amount = 0
     else
       @status = "rejected"
       "Transaction rejected. Please check your account balance."
@@ -29,8 +29,8 @@ class Transfer
   end
   
   def reverse_transfer
-    @receiver.balance -= amount
-    @sender.balance += amount
+    @receiver.balance -= @amount
+    @sender.balance += @amount
     @status = "reversed"
   end
   
