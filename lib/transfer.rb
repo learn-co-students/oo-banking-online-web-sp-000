@@ -1,3 +1,12 @@
+require "pry"
+
 class Transfer
-  # your code here
+  attr_reader  :reciever, :transfer
+  attr_accessor :sender
+
+  def initialize (transfer, sender, reciever)
+    @sender= sender
+    binding.pry
+  end
+
 end
