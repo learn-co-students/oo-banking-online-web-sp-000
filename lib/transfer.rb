@@ -1,3 +1,4 @@
+require "pry"
 class Transfer
   
   attr_accessor :status, :amount, :sender, :receiver
@@ -14,11 +15,12 @@ class Transfer
   end
   
   def execute_transaction()
+    
     if @sender.balance > @amount && @status == "pending"
       @sender.balance -= @amount
       @receiver.balance += @amount
       @status = "complete"
-    else
+    elsif !(sender.valid?)
       p "Transaction rejected. Please check your account balance."
     end
   end
