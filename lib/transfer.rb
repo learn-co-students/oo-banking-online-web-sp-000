@@ -7,7 +7,6 @@ class Transfer
     @status = 'pending'
     @sender = sender
     @receiver = receiver
-  
   end
 
   def valid?
