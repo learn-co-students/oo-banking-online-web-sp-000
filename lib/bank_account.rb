@@ -1,4 +1,3 @@
-require 'pry'
 class BankAccount
   
  attr_accessor :balance, :status
@@ -11,8 +10,7 @@ class BankAccount
  end
  
  def deposit(new_amount)
-   @balance = self.balance + new_amount
-   @balance
+   self.balance += new_amount
  end
    
   def display_balance
@@ -20,17 +18,10 @@ class BankAccount
   end
   
   def valid?
-   if self.status == "open" && self.balance > 0
-      true
-   else 
-     false
-   end
+    status == "open" && balance > 0
   end
   
   def close_account
-    if self.status == "open"
       self.status = "closed"
-    else self.status = "closed"
     end
-  end
 end
