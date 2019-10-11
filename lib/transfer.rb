@@ -33,9 +33,3 @@ end
      end
   end
 end
-
-
-
-  #start in "pending", end as "complete" or "rejected"
-  #complete transfer can be reversed, go into "reversed" status
-  
