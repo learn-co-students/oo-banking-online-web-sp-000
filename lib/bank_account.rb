@@ -1,6 +1,6 @@
 require 'pry'
 class BankAccount
- #one instance of class can transfer money to another instance thru Transfer class
+  
  attr_accessor :balance, :status
  attr_reader :name
 
@@ -19,5 +19,18 @@ class BankAccount
      "Your balance is $#{self.balance}."
   end
   
-  def 
+  def valid?
+   if self.status == "open" && self.balance > 0
+      true
+   else 
+     false
+   end
+  end
+  
+  def close_account
+    if self.status == "open"
+      self.status = "closed"
+    else self.status = "closed"
+    end
+  end
 end
