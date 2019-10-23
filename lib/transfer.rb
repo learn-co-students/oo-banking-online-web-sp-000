@@ -19,17 +19,25 @@ class Transfer
       @receiver.deposit(amount)
       @status = "complete"
     else
+<<<<<<< HEAD
       @status = "rejected"
       "Transaction rejected. Please check your account balance."
     end
+=======
+      @status = "Failed"
+      "Transaction rejected. Please check your account balance."
+    end
+      
+>>>>>>> 88675cf1d0935d3a7f26ed3ac12e20551a61af12
   end
   
   def reverse_transfer
-    #return nil if @status != "completed"
-    @sender, @receiver = @receiver, @sender
-    @status = "pending"
-    self.execute_transaction
-    @status = "reversed"
+    if @status != "completed"
+      @sender, @receiver = @receiver, @sender
+      @status = "pending"
+      self.execute_transaction
+      @status = "reversed"
+    end
   end
 
 end
