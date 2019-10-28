@@ -27,10 +27,4 @@ class BankAccount
   end
 
 
-
-
-
-
-
-
 end
