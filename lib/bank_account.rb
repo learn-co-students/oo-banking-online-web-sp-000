@@ -9,8 +9,7 @@ class BankAccount
   end
 
   def deposit(money)
-    self.balance + money
-
+    self.balance = self.balance + money
   end
 
   def display_balance
@@ -28,10 +27,4 @@ class BankAccount
   def close_account
     self.status = "closed"
   end
-
-
-
-
-
-
 end
