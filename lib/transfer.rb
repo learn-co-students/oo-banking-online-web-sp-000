@@ -6,7 +6,8 @@ class Transfer
     @sender = sender
     @receiver = receiver
     @amount = amount
-    @status = pending
+    @status = "pending"
+    @sender.transfers << self
   end
 
   def valid?
@@ -16,5 +17,29 @@ class Transfer
       false
     end
   end
-  # your code here
+
+  def execute_transaction
+    if self.status == "pending" && self.valid?
+      if self.sender.balance >= amount
+        self.sender.balance = self.sender.balance - self.amount
+        self.receiver.balance = self.receiver.balance + self.amount
+        self.status = "complete"
+      else
+        puts "Transaction rejected. Please check your account balance."
+      end
+    else
+      puts "Accounts invalid"
+    end
+  end
+
+  def reverse_transfer
+    if self.status == "complete"
+      self.sender.balance += self.amount
+      self.receiver.balance -= self.amount
+      self.status = "reversed"
+    else
+      puts "Must execute transaction before reversing it."
+    end
+  end
+
 end
