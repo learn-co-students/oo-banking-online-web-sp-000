@@ -26,20 +26,29 @@ class Transfer
     end
   end
 
-  def execute_transaction
-  #binding.pry
-  if (sender.valid? == false)
-    self.status = "rejected"
-    puts "Transaction rejected. Please check your account balance."
-  elsif (sender.valid? == true) && (sender.balance > transfer)
-    (sender.balance -= transfer) && (receiver.balance += transfer) && (self.status = "complete")
+
+def execute_transaction
+#binding.pry
+if (self.status == "pending") && (transfer < sender.balance) && receiver.valid? == true && sender.valid? == true
+    receiver.balance += transfer
+    sender.balance -= transfer
+    self.status = "complete"
+
+  else
+  self.status = "rejected"
+   "Transaction rejected. Please check your account balance."
+
     end
 end
 
+
   def reverse_transfer
+    while self.status == "complete"
+
     receiver.balance -= transfer
     sender.balance += transfer
     self.status = "reversed"
+    end
   end
 
 end
