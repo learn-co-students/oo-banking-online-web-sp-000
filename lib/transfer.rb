@@ -32,8 +32,12 @@ class Transfer
   end 
   
   def valid?
-    binding.pry 
-    BankAccount.valid?
+    sender.balance > 0 && receiver.balance > 0 ? true : false 
+    sender.valid?
+    receiver.valid? 
+  end 
+  
+  def execute_transaction
   end 
   
 end
