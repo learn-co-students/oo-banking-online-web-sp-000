@@ -17,27 +17,39 @@
   #   it can only reverse executed transfers (FAILED - 12)
 
 class Transfer
-  attr_accessor :sender, :receiver, :transfer_amount
-  attr_reader :status 
+  attr_accessor :sender, :receiver, :amount, :status 
   
-  def initialize(sender, receiver, transfer_amount)
+  def initialize(sender, receiver, amount)
     @sender = sender 
     @receiver = receiver 
-    @transfer_amount = transfer_amount
+    @amount = amount
     @status = "pending"
   end 
   
-  def amount 
-    @transfer_amount = 50 
-  end 
   
   def valid?
-    sender.balance > 0 && receiver.balance > 0 ? true : false 
-    sender.valid?
-    receiver.valid? 
+    #sender.balance >= amount && receiver.balance >= amount ? true : false 
+    sender.valid? && receiver.valid? 
   end 
   
   def execute_transaction
+    #binding.pry 
+    if valid? && self.status == "pending" && sender.balance >= amount  
+      sender.balance -= amount 
+      receiver.balance += amount 
+      self.status = "complete"
+    else 
+      self.status = "rejected"
+      "Transaction rejected. Please check your account balance."
+    end 
+  end 
+  
+  def reverse_transfer
+    if execute_transaction 
+      receiver.balance -= amount 
+      sender.balance += amount 
+      self.status = "reversed"
+    end 
   end 
   
 end
