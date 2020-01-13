@@ -2,13 +2,18 @@
 
 class BankAccount
 
-    attr_accessor :balance, :status
-    attr_reader  :name
+    attr_accessor :balance, :status, :all, :transfer_log
+    attr_reader  :name, :code
+
+    @@all = []
 
     def initialize(name)
         @name = name
         @balance = 1000
         @status = "open"
+        @code = self.object_id
+        @@all << self
+        @transfer_log = []
     end
 
     def deposit(amount)
@@ -26,6 +31,10 @@ class BankAccount
 
     def close_account
         @status = "closed"
+    end
+
+    def self.all
+        @@all
     end
 
 
