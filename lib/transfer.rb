@@ -23,7 +23,7 @@ class Transfer
 
   def execute_transaction
     binding.pry
-    if @@all.detect {|t| t.object_id  == self.object_id } && self.status == "complete"
+    if @@all.detect {|t| t.object_id  == self.object_id } #&& self.status == "complete"
       if @sender.balance < @amount || @sender.status == 'closed'
         self.status == "rejected"
         #return "Transaction rejected. Please check your account balance."
