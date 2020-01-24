@@ -12,10 +12,14 @@ class Transfer
   end 
 
   def valid?
-    if @sender.status == BankAccount.new(@sender).status && @receiver.status == BankAccount.new(@receiver).status
-      true 
-    else
-      false
-    end 
+    @sender.valid? && receiver.valid? ? true : false
   end 
+
+  def execute_transaction
+    @receiver.balance += amount
+    @sender.balance -= amount
+    self.status = "complete"
+    
+    # What does it mean that a transher can only happen once?
+  end
 end
