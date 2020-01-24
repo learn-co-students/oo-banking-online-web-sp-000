@@ -16,10 +16,26 @@ class Transfer
   end 
 
   def execute_transaction
-    @receiver.balance += amount
-    @sender.balance -= amount
-    self.status = "complete"
-    
-    # What does it mean that a transher can only happen once?
+    if valid? && sender.balance > amount && self.status == "pending"
+      @receiver.balance += amount
+      @sender.balance -= amount
+      self.status = "complete"
+    else 
+      self.status = "rejected"
+      "Transaction rejected. Please check your account balance."
+    end 
+  end
+
+  def reverse_transfer
+    # I have to use conditional logic to show that it can only reverse transfers
+    if valid? && receiver.balance > amount && self.status == "complete"
+      receiver.balance -= amount
+      sender.balance += amount
+      self.status = "reversed"
+    else
+      self.status = "rejected"
+      "Transaction rejected. Please check your account balance."
+    end 
   end
 end
+
