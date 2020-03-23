@@ -37,19 +37,14 @@ class Transfer
       @status = "complete"
     end
 
-    # if @status == "complete" || "rejected"
-    #   return
-    # elsif
-    #   !sender.valid?
-    #   @status = "rejected"
-    #   return message
-    # elsif sender.balance < amount
-    #   @status = "rejected"
-    #   return message
-    # else
-    #   sender.balance -= amount
-    #   receiver.balance += amount
-    #   @status = "complete"
-    # end
+    def reverse_transfer
+      if @status == "complete"
+        sender.balance += amount
+        receiver.balance -= amount
+        @status = "reversed"
+      else
+        return
+      end
+    end
   end
 end
