@@ -20,6 +20,7 @@ def initialize(sender,receiver,transfer_amount)
 end
 
 def valid?
+
  @sender.valid? && @receiver.valid? && @amount<@sender.balance
 end
 
