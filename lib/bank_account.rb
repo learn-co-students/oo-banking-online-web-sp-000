@@ -15,18 +15,6 @@ def name
   @name
 end
 
-def balance=(balance)
-   if @balance > 0
-     @balance
-   else
-     @broke = 0
-   end
-end
-
-def status=(status)
-  @status
-end
-
 def deposit(deposit)
 @balance += (deposit)
   
@@ -42,7 +30,7 @@ def valid?
  
 end
 
-def close_account(name)
+def close_account
   self.status = "closed"
 end
 
