@@ -8,22 +8,25 @@ class Transfer
   end
   
   def valid?
-    BankAccount.select {|account| account.name == @receiver} && BankAccount.select {|account| account.name == @sender}
+    sender.valid? && receiver.valid?
   end
   
   def execute_transaction
-    if valid? && @sender >= @amount
-      @sender -= @amount
-      @receiver += @amount
+    if sender.balance > @amount && self.valid? && @status == "pending"
+      receiver.deposit(@amount)
+      sender.balance -= @amount
+      @status = "complete"
     else
-      "rejected"
+      @status = "rejected"
+      "Transaction rejected. Please check your account balance."
     end
   end
   
   def reverse_transfer
-    if execute_transaction 
-      @sender += @amount
-      @receiver -= @amount
+    if @status = "complete"
+      receiver.balance -= @amount
+      sender.balance += @amount
+      @status = "reversed"
     end
   end
   
