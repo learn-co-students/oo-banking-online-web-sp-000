@@ -9,6 +9,7 @@ class BankAccount
   end
 
   def deposit(amount)
+  amount = 1000
   @balance << amount
   end
 
