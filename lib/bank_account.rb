@@ -1,5 +1,5 @@
 class BankAccount
-  
+  #notes
   attr_reader :name
   attr_accessor :balance, :status
 
