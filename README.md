@@ -4,7 +4,7 @@
 
 1. Use TDD to code two classes that interact with each other. 
 
-## Description
+## Descriptionhttps://learn.co/tracks/full-stack-web-development-v8/module-6-object-oriented-ruby/section-12-object-relationships/oo-banking#
 
 We're going to build a `BankAccount` class where one instance of the class can transfer money to another instance through a `Transfer` class. The `Transfer` class acts as a space for a transaction between two instances of the bank account class. Think of it this way: you can't just transfer money to another account without the bank running checks first. `Transfer` instances will do all of this, as well as check the validity of the accounts before the transaction occurs. `Transfer` instances should be able to reject a transfer if the accounts aren't valid or if the sender doesn't have the money.
 
