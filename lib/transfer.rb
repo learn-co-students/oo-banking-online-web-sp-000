@@ -24,7 +24,7 @@ end
     self.status = "complete"
     
   else
-    sender.balance < @amount
+    # sender.balance < @amount
     self.status = "rejected"
     "Transaction rejected. Please check your account balance."
   end
