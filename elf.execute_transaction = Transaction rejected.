@@ -1,0 +1,16 @@
+
+[1mFrom:[0m /mnt/c/Users/jagua/development/flatiron/labs/oo-banking-online-web-sp-000/lib/transfer.rb @ line 27 Transfer#execute_transaction:
+
+    [1;34m20[0m: [32mdef[0m [1;34mexecute_transaction[0m
+    [1;34m21[0m:   [32mif[0m [1;36mself[0m.valid? == [1;36mtrue[0m && @status == [31m[1;31m"[0m[31mpending[1;31m"[0m[31m[0m
+    [1;34m22[0m:     @sender.balance -= @amount
+    [1;34m23[0m:     @receiver.balance += @amount
+    [1;34m24[0m:     @status = [31m[1;31m"[0m[31mcomplete[1;31m"[0m[31m[0m
+    [1;34m25[0m:   [32melse[0m 
+    [1;34m26[0m:     @status = [31m[1;31m"[0m[31mrejected[1;31m"[0m[31m[0m
+ => [1;34m27[0m:     binding.pry
+    [1;34m28[0m:     [1;36mself[0m.execute_transaction = [31m[1;31m"[0m[31mTransaction rejected. Please check your account balance.[1;31m"[0m[31m[0m
+    [1;34m29[0m:     binding.pry
+    [1;34m30[0m:   [32mend[0m 
+    [1;34m31[0m: [32mend[0m 
+
