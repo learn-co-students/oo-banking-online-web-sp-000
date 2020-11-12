@@ -19,8 +19,10 @@ describe "BankAccount" do
       expect(avi.status).to eq("open")
     end
 
+  #<ArgumentError: wrong number of arguments (given 1, expected 0)> error description from WARNING
     it "can't change its name" do
       expect { avi.name = "Bob" }.to raise_error
+
     end
   end
 
