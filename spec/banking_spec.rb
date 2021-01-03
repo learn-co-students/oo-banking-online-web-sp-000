@@ -1,4 +1,0 @@
-describe "BankAccount" do
-
-  
-end
