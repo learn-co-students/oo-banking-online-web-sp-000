@@ -71,6 +71,7 @@ describe 'Transfer' do
 
     it "rejects a transfer if the sender does not have enough funds (does not have a valid account)" do
       terrance.close_account
+      # binding.pry
       closed_account_transfer = Transfer.new(amanda, terrance, 50)
       expect(closed_account_transfer.execute_transaction).to eq("Transaction rejected. Please check your account balance.")
       expect(closed_account_transfer.status).to eq("rejected")
