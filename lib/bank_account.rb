@@ -1,4 +1,5 @@
 class BankAccount
+  
   attr_accessor :balance, :status
   attr_reader :name
   
@@ -20,7 +21,7 @@ class BankAccount
     status == "open" && balance > 0
   end
   
-  def close_account
+  def close_account 
     self.status = "closed"
   end
 end
