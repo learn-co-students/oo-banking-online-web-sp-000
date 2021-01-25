@@ -15,7 +15,6 @@ class Transfer
 
   def execute_transaction
     if valid? && status == 'pending'
-      puts "#{valid?}"
       sender.withdraw(amount)
       receiver.deposit(amount)
       @status = 'complete'
