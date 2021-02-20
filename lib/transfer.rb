@@ -1,4 +1,5 @@
 class Transfer
+
   attr_reader :sender, :receiver, :amount
   attr_accessor :status
 
@@ -8,6 +9,7 @@ class Transfer
     @status = "pending"
     @amount = amount
   end
+
 
 def valid?
   @status == "pending" && @sender.valid? && @receiver.valid? && @sender.balance > @amount
@@ -31,6 +33,5 @@ def reverse_transfer
       @status = "reversed"
 end
 end
-
 
 end

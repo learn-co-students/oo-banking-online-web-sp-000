@@ -1,4 +1,5 @@
 class BankAccount
+
 attr_accessor :balance, :status
 attr_reader :name
 
@@ -11,6 +12,7 @@ end
 
 def deposit(amount)
   @balance += amount
+
 end
 
 def display_balance
@@ -26,3 +28,5 @@ def close_account
 end
 
 end
+
+
