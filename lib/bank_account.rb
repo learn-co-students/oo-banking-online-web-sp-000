@@ -4,7 +4,9 @@ class BankAccount
   def initialize(name)
     @status = "open"
     @balance = 1000 
-    @name = name
-    #need to raise an exception if name tries to change 
-  end
+   @name = name.freeze
+   if name != name.freeze 
+     raise FrozenError.new "Frozen name cannot be changed" 
+   end
  end 
+end 
