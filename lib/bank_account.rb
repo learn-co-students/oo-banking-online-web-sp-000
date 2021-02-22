@@ -1,10 +1,10 @@
 class BankAccount
-  attr_accessor :name
+  attr_accessor :name, :status, :balance
 
-  def initialize(name) 
-    STATUS ==open
-    BALANCE == 1000 
-     
-    @name = name 
-  end 
-end 
+  def initialize(name)
+    @status = "open"
+    @balance = 1000 
+    @name = name
+    #need to raise an exception if name tries to change 
+  end
+ end 
