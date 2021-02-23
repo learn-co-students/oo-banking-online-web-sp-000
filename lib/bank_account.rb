@@ -15,15 +15,16 @@ class BankAccount
     @name 
    end 
    
-  def deposit(deposit) 
+  def deposit(deposit)
    current_balance = (balance + deposit) 
   end 
-  #but Rspect wants balance to be $2000
+  #but Rspec wants balance to be $2000
+  #rspec says wrong number of arguments, but when I run it with no arguments, I get a perpetual loop
 
 
-def display_balance(balance) 
+def display_balance
   current_balance = balance + deposit
-  puts "Your balance is #{$current_balance}."
+  puts "Your balance is #{$current_balance}." 
 end 
 # [1] pry(#<BankAccount>)> deposit
 # => 1000
