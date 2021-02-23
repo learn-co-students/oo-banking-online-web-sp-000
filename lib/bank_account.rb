@@ -5,7 +5,7 @@ class BankAccount
   @name 
   
 
-    def initialize(name="Avi")
+  def initialize(name="Avi")
       @name = name 
       @status = "open"
       @balance = 1000
@@ -15,21 +15,22 @@ class BankAccount
     @name 
    end 
    
-  def deposit(balance) 
-    
-    deposit = 1000
-  #     [1] pry(#<BankAccount>)> balance => 1000
-  #     [2] pry(#<BankAccount>)> balance + deposit => 2000
-  #     [3] pry(#<BankAccount>)> deposit => 1000
-  balance = (balance + deposit)
+  def deposit(deposit) 
+   current_balance = (balance + deposit) 
   end 
+  #but Rspect wants balance to be $2000
 
 
-def display_balance
-  balance = balance + deposit 
-  puts "Your balance is #{$balance}."  
+def display_balance(balance) 
+  current_balance = balance + deposit
+  puts "Your balance is #{$current_balance}."
 end 
-
+# [1] pry(#<BankAccount>)> deposit
+# => 1000
+# [2] pry(#<BankAccount>)> current_balance = balance + deposit
+# => 2000
+# [3] pry(#<BankAccount>)> current_balance
+# => 2000
 
 def valid? 
   if status = "open" && balance > 0
