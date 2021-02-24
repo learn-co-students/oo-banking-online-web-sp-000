@@ -32,10 +32,10 @@ class BankAccount
    end 
    
    def close_account
-     if status == "closed"
+      @status = "closed"
+      @balance = 0 
        puts "Account is closed."
      end 
-  end 
  end 
  
    
