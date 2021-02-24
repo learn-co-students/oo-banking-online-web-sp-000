@@ -18,17 +18,24 @@ class BankAccount
     @balance = (@balance + entry)
   end 
 
-def display_balance
-  return "Your balance is $#{@balance}."
-end
+  def display_balance
+   return "Your balance is $#{@balance}."
+  end
 
 
-def valid?
+  def valid?
   if @status == "open" && @balance > 0
     return true
   else 
     return false 
     end
    end 
+   
+   def close_account
+     if status == "closed"
+       puts "Account is closed."
+     end 
+  end 
  end 
+ 
    
