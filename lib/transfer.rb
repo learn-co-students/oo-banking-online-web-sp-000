@@ -1,3 +1,5 @@
+require 'pry'
+
 class Transfer
   attr_accessor :sender, :receiver 
 
@@ -17,17 +19,12 @@ class Transfer
   end 
   
   def valid?
-    if @status == "open" && @amount > 0
-    return true
+    if (@status == "open" || "pending") && @amount >0 && sender.valid? && receiver.valid?
+    true
     else 
-    return false 
-    binding.pry 
+     puts "There is a problem with one of the accounts." 
+     false 
     end
-    
-    if valid? && bank_account.valid?
-    else 
-     puts "there is a problem"
-    end 
   end 
   
    
