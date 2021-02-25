@@ -29,6 +29,12 @@ class Transfer
   
    
   def execute_transaction
+    Transfer.new(sender, receiver, amount)
+    # pry(#<Transfer>)> @name => nil
+    # pry(#<Transfer>)> @amount => 50
+    # pry(#<Transfer>)> BankAccount.name => "BankAccount"
+    # expect(amanda.balance).to eq(950)
+    #   expect(avi.balance).to eq(1050)
   end 
   
 end
