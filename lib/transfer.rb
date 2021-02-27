@@ -41,7 +41,6 @@ end
 
 def reverse_transfer 
   if @status == "complete" || !"reversed"
-    #&& @sender.balance  > amount && @receiver.balance >= amount && @status = "open" || "pending"
     sender.balance = sender.balance + amount
     receiver.balance = receiver.balance - amount
     @status = "reversed"
