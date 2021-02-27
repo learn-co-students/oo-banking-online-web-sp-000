@@ -38,14 +38,12 @@ class Transfer
     "Transaction rejected. Please check your account balance." 
   end 
 end 
-end   
- 
-  # "each transfer can only happen once" 
-  # rejects a transfer if the sender does not have enough funds (does not have a valid account)" do
-  #     "Transaction rejected. Please check your account balance."
 
-# pry(#<Transfer>)> @name => nil
-    # pry(#<Transfer>)> @amount => 50
-    # pry(#<Transfer>)> BankAccount.name => "BankAccount"
-    # expect(amanda.balance).to eq(950)
-    #   expect(avi.balance).to eq(1050)
+def reverse_transfer 
+  if @status = "complete"
+    sender.balance = sender.balance + amount
+    receiver.balance = receiver.balance - amount 
+    @status = "reversed"
+  end
+end 
+end 
