@@ -1,8 +1,6 @@
 require "pry"
-
 class Transfer
   attr_accessor :sender, :receiver, :amount, :status 
-  
   
   def initialize(sender, receiver, amount)
     @sender = sender
@@ -16,7 +14,8 @@ class Transfer
   end 
   
   def execute_transaction
-    if @sender.balance > @amount 
+    if @sender.balance >= @amount 
+      #binding.pry 
       @sender.deposit(0-@amount)
       @receiver.deposit(@amount)
       @amount = 0
