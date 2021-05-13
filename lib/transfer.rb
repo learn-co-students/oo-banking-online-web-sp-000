@@ -26,8 +26,8 @@ class Transfer
 
   def reverse_transfer
     if valid? && receiver.balance > amount && self.status == "complete"
+      binding.pry
       receiver.balance -+ amount
-      require.pry
       sender.balance += amount
       self.status = "reversed"
     else
@@ -37,6 +37,6 @@ class Transfer
 
   def reject_transfer
     self.status = "rejected"
-    puts "Transaction rejected. Please check your account balance."
+    "Transaction rejected. Please check your account balance."
   end
 end
