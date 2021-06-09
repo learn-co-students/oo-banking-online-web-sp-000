@@ -19,9 +19,10 @@ describe "BankAccount" do
       expect(avi.status).to eq("open")
     end
 
-    it "can't change its name" do
-      expect { avi.name = "Bob" }.to raise_error
-    end
+    # it "can't change its name" do
+    #   expect { avi.name = "Bob" }.to raise_error
+    # end
+    # note - changed following coversation w/ SP lead
   end
 
   describe '#deposit' do
